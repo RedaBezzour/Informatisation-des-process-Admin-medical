@@ -1,0 +1,22 @@
+mat-card {
+  width: 40%;
+  margin: auto;
+  margin-top: 5cm;
+  background-color: beige;
+}
+
+mat-form-field{
+  width: 100%;
+}
+mat-card-title {
+  margin-left: 6cm;
+  color: brown;
+}
+
+
+button {
+  width: 40%;
+  margin-left: 4cm;
+  background-color: brown;
+  color: beige;
+}

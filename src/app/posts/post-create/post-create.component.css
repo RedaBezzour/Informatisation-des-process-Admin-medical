@@ -1,0 +1,45 @@
+mat-card {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  background-color: beige;
+}
+
+mat-form-field,
+textarea {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.image-preview {
+  height: 5rem;
+  margin: 1rem 0;
+}
+.image-preview img {
+  height: 100%;
+}
+
+.reda {
+  background-color: chocolate;
+  width: 50%;
+  margin-left: 3.5cm;
+  margin-top: 1cm;
+  color: beige;
+
+}
+
+.reda2 {
+  background-color: darksalmon;
+
+}

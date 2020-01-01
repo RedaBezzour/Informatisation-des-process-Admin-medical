@@ -1,0 +1,42 @@
+<mat-card>
+    <form [formGroup]="form" (submit)="onSaveDossier()" *ngIf="!isLoading">
+  <mat-form-field>
+  <input matInput type="text"  formControlName="nomPatient"   placeholder="Nom Patient">
+  </mat-form-field>
+  <mat-form-field>
+  <input matInput type="text" formControlName="prenomPatient" placeholder="Prénom patient">
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput formControlName="dateNaissance" [matDatepicker]="picker" placeholder="Date de naissance">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+    <input matInput type="text" formControlName="adresse"  placeholder="Adresse">
+    </mat-form-field>
+    <mat-form-field>
+    <input matInput type="text" formControlName="mutuelle" placeholder="Mutuelle">
+    </mat-form-field>
+    <mat-form-field>
+    <input matInput type="text" formControlName="tel" placeholder="Telephone">
+    </mat-form-field>
+    <mat-form-field>
+    <input matInput type="text" formControlName="numAdmission" placeholder="numero d'admission">
+    </mat-form-field>
+    <mat-form-field>
+    <input matInput type="text" formControlName="medecinTraitant" placeholder="medecin Traitant">
+    </mat-form-field>
+    <mat-form-field>
+    <input matInput type="text" formControlName="medecinResponsable" placeholder="medecin responsable">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="poids" placeholder="Poids">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="taille" placeholder="Taille">
+    </mat-form-field>
+
+  <button mat-raised-button color="accent" type="button">Add details</button>
+  <button mat-raised-button color="accent"  type="submit">Valider</button>
+  </form>
+  </mat-card>

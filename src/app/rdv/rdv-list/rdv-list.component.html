@@ -1,0 +1,22 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="rdvs.length > 0 && !isLoading">
+    <mat-form-field class="example-full-width">
+        <textarea #search  (keyup)="0" matInput placeholder="Seach Here !"></textarea>
+      </mat-form-field>
+  <mat-expansion-panel *ngFor="let rdv of (rdvs | searchFilter: search.value ); let i = index" [attr.data-index]="i">
+    <mat-expansion-panel-header>
+      rendez-vous num : {{ i }}
+    </mat-expansion-panel-header>
+    <mat-list>
+        <mat-list-item><h4>Médecin responsable :</h4> {{  rdv.medecin }} </mat-list-item>
+        <mat-list-item><h4>Date de rendez-vous :</h4> {{ rdv.daterdv }} </mat-list-item>
+        <mat-list-item><h4>Type de rendez-vous :</h4> {{ rdv.type }} </mat-list-item>
+        <mat-list-item><h4>Salle de consultation :</h4> {{ rdv.salle }} </mat-list-item>
+    </mat-list>
+    <mat-action-row *ngIf="userIsAuthenticated && userId === rdv.creator">
+      <a mat-button color="primary" [routerLink]="['/editRdv', rdv.id]">EDIT</a>
+      <button mat-button color="warn" (click)="onDelete(rdv.id)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-1" *ngIf="rdvs.length <= 0 && !isLoading">No Rdvs added yet!</p>

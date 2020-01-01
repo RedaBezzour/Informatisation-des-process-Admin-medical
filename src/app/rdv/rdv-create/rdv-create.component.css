@@ -1,0 +1,20 @@
+mat-card {
+  width: 60%;
+  margin: auto;
+  margin-top: 5cm;
+  background-color:rgb(201, 181, 241);
+}
+
+mat-form-field,
+textarea {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+button{
+  background-color: palevioletred;
+  padding-left: 5cm;
+}

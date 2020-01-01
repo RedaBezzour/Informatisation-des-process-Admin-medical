@@ -1,0 +1,58 @@
+
+<mat-toolbar color ="primary">
+  <mat-toolbar-row>
+      <button mat-icon-button>
+          <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+<span>Clinique de Cardiologie</span>
+<span class=" menu spacer"></span>
+<div>
+   <a *ngIf="!userIsAuthenticated" mat-button routerLink="/login" routerLinkActive="router-link-active" class="icon user">Login</a>
+    <a *ngIf="!userIsAuthenticated" mat-button routerLink="/signup" routerLinkActive="router-link-active">Signup</a>
+    <button *ngIf="userIsAuthenticated" mat-button (click)="onLogout()">Logout</button>
+
+</div>
+</mat-toolbar-row>
+<mat-toolbar-row>
+    <span  style="font-size: 10px;"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list >
+        <a *ngIf="userIsAuthenticated" mat-button routerLink="/create" routerLinkActive="router-link-active">New Post</a>
+    </mat-nav-list>
+    <mat-nav-list>
+        <a *ngIf="userIsAuthenticated" mat-button routerLink="/" routerLinkActive="router-link-active">Posts</a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a *ngIf="userIsAuthenticated" mat-button routerLink="/createRdv" routerLinkActive="router-link-active">Create rendez-vous</a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a *ngIf="userIsAuthenticated" mat-button routerLink="/listRdv" routerLinkActive="router-link-active">List Rendez-vous</a>
+      </mat-nav-list>
+      <mat-nav-list>
+         <a *ngIf="userIsAuthenticated" mat-button routerLink="/dossier" routerLinkActive="router-link-active">Create Dossier</a>
+      </mat-nav-list>
+      <mat-nav-list>
+          <a *ngIf="userIsAuthenticated" mat-button routerLink="/listDossier" routerLinkActive="router-link-active">List Dossier</a>
+      </mat-nav-list>
+      <mat-nav-list>
+       <a *ngIf="!userIsAuthenticated" mat-button routerLink="/login" routerLinkActive="router-link-active" class="icon user">Login</a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a *ngIf="!userIsAuthenticated" mat-button routerLink="/signup" routerLinkActive="router-link-active">Signup</a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <button *ngIf="userIsAuthenticated" mat-button (click)="onLogout()">Logout</button>
+      </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 88vh;">
+
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

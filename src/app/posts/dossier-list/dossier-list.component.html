@@ -1,0 +1,28 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="dossiers.length > 0 && !isLoading">
+    <mat-form-field class="example-full-width">
+        <textarea #search  (keyup)="0" matInput placeholder="Seach Here !"></textarea>
+      </mat-form-field>
+  <mat-expansion-panel *ngFor="let dossier of (dossiers | searchFilter: search.value ) ">
+    <mat-expansion-panel-header>
+      <h3>M. {{ dossier.nomPatient }} {{ dossier.prenomPatient }}</h3>
+    </mat-expansion-panel-header>
+    <mat-list>
+        <mat-list-item><h4>Médecin Date de naissance :</h4> {{  dossier.dateNaissance }} </mat-list-item>
+        <mat-list-item><h4>Addresse :</h4> {{ dossier.adresse }} </mat-list-item>
+        <mat-list-item><h4>Télephone :</h4> {{ dossier.tel }} </mat-list-item>
+        <mat-list-item><h4>Mutuelle :</h4> {{ dossier.mutuelle }} </mat-list-item>
+        <mat-list-item><h4>Numéro d'admission :</h4> {{  dossier.numAdmission }} </mat-list-item>
+        <mat-list-item><h4>Medecin traitant :</h4> {{ dossier.medecinTraitant }} </mat-list-item>
+        <mat-list-item><h4>Medecin responsable :</h4> {{ dossier.medecinResponsable }} </mat-list-item>
+        <mat-list-item><h4>Poids du patient :</h4> {{ dossier.poids }} </mat-list-item>
+        <mat-list-item><h4>Taille du patient :</h4> {{ dossier.taille }} </mat-list-item>
+    </mat-list>
+    <mat-action-row *ngIf="userIsAuthenticated && userId === dossier.creator">
+      <button mat-button color="primary" [routerLink]="['/editDossier', dossier.id]">EDIT</button>
+      <button mat-button color="warn" (click)="onDelete(dossier.id)">DELETE</button>
+      <button class="reda" mat-stroked-button routerLink="/create" routerLinkActive="router-link-active">add details? click here</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-1" *ngIf="dossiers.length <= 0 && !isLoading">No dossiers added yet!</p>

@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form [formGroup]="forms" (submit)="onSaveRdv()" *ngIf="!isLoading">
+      <mat-form-field>
+        <mat-label>Medecins :</mat-label>
+        <mat-select formControlName="medecin">
+          <mat-option  *ngFor="let docteur of docteurs" [value]="docteur.value">
+            {{docteur.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput formControlName="daterdv" type="datetime-local" placeholder="start date">
+        </mat-form-field>
+      <mat-form-field>
+        <mat-label>Salle de consultation :</mat-label>
+        <mat-select formControlName="salle">
+          <mat-option  *ngFor="let salle of salles" [value]="salle.value">
+            {{salle.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Type de consultation :</mat-label>
+        <mat-select formControlName="type">
+          <mat-option  *ngFor="let type of types" [value]="type.value">
+            {{type.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button type="submit">Save Rdv</button>
+    </form>
+  </mat-card>

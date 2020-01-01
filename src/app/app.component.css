@@ -1,0 +1,15 @@
+main {
+  width: 80%;
+  margin: 1rem auto;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: mediumvioletred !important;
+ }
+
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color:mediumvioletred !important;;
+}
